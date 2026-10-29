@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Typst Editor — Concept C · t in brackets — 括号 t</title>
+
+  <!-- ============================================================
+       Concept C: monogram < t >. Stroked round angle brackets
+       flanking a large bold white "t". Code + typography, reads
+       at 16px. Tile inset 4% (40/944), radius 208 (22%).
+       ============================================================ -->
+
+  <defs>
+    <linearGradient id="tileTeal" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="984">
+      <stop offset="0" stop-color="#3EC0D0"/>
+      <stop offset="1" stop-color="#1B8494"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tile -->
+  <rect x="40" y="40" width="944" height="944" rx="208" fill="url(#tileTeal)"/>
+
+  <!-- angle brackets: stroked polylines, round caps, slightly shorter than the t -->
+  <g fill="none" stroke="#FFFFFF" stroke-opacity="0.9" stroke-width="64" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="362 391 284 505 362 619"/>
+    <polyline points="662 391 740 505 662 619"/>
+  </g>
+
+  <!-- the "t" -->
+  <text x="512" y="656" font-family="'Segoe UI Black','Arial Black','Segoe UI',sans-serif" font-size="470"
+        font-weight="900" fill="#FFFFFF" text-anchor="middle">t</text>
+</svg>

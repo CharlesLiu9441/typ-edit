@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MSI packaging source for Typst Editor. Build with scripts/release-all.ps1. -->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+      Name="Typst Editor"
+      Manufacturer="typ-edit"
+      Version="$(var.Version)"
+      UpgradeCode="{AD741A2B-A6B7-4856-847D-46BE0E1BD1BB}"
+      Scope="perMachine">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Typst Editor is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Icon Id="AppIcon.ico" SourceFile="$(var.IconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon.ico" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="Typst Editor">
+        <Component Id="MainExecutable" Guid="*">
+          <File Id="TypstEditorExe" Source="$(var.SourceExe)" KeyPath="yes">
+            <Shortcut
+                Id="StartMenuShortcut"
+                Directory="ProgramMenuDir"
+                Name="Typst Editor"
+                Description="Typst Editor"
+                Advertise="yes" />
+          </File>
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ProgramMenuDir" Name="Typst Editor">
+        <Component Id="ProgramMenuDirComponent" Guid="*">
+          <RemoveFolder Id="RemoveProgramMenuDir" On="uninstall" />
+          <RegistryValue
+              Root="HKCU"
+              Key="Software\typ-edit\TypstEditor"
+              Name="ProgramMenuDir"
+              Type="integer"
+              Value="1"
+              KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="Typst Editor" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="ProgramMenuDirComponent" />
+    </Feature>
+  </Package>
+</Wix>

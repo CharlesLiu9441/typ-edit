@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Typst Editor — Concept B · typing t — 打字中的 t</title>
+
+  <!-- ============================================================
+       Concept B: a white page being typed on.
+       Airy centered page, folded top-right corner, big teal "t"
+       with a blue caret immediately to its right.
+       Canvas 1024. Tile inset 4% (40/944), radius 208 (22%).
+       ============================================================ -->
+
+  <defs>
+    <linearGradient id="tileTeal" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="984">
+      <stop offset="0" stop-color="#3EC0D0"/>
+      <stop offset="1" stop-color="#1B8494"/>
+    </linearGradient>
+    <!-- very subtle page lift on the tile -->
+    <filter id="pageLift" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <!-- tile -->
+  <rect x="40" y="40" width="944" height="944" rx="208" fill="url(#tileTeal)"/>
+
+  <!-- page lift: 7% black, small blur -->
+  <path d="M234 180 L720 180 L828 288 L828 838 A38 38 0 0 1 790 876 L234 876 A38 38 0 0 1 196 838 L196 218 A38 38 0 0 1 234 180 Z"
+        fill="#000000" fill-opacity="0.07" filter="url(#pageLift)"/>
+
+  <!-- white page -->
+  <g>
+    <path d="M234 164 L720 164 L828 272 L828 822 A38 38 0 0 1 790 860 L234 860 A38 38 0 0 1 196 822 L196 202 A38 38 0 0 1 234 164 Z"
+          fill="#FFFFFF" stroke="#E3E3E3" stroke-width="3.5"/>
+    <!-- folded top-right corner -->
+    <path d="M720 164 L828 164 L828 272 Z" fill="#E5ECF0" stroke="#E3E3E3" stroke-width="3.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- the "t" being typed + blue caret -->
+  <text x="464" y="650" font-family="'Segoe UI Black','Arial Black','Segoe UI',sans-serif" font-size="400"
+        font-weight="900" fill="#239DAD" text-anchor="middle">t</text>
+  <rect x="585" y="372" width="40" height="300" rx="20" fill="#5AA9FF"/>
+</svg>

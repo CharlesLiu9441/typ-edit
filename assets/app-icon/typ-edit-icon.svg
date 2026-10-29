@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Typst Editor — Concept A · code + page — 代码与页面</title>
+
+  <!-- ============================================================
+       Concept A: editor | preview, on the family teal tile.
+       Left: dark code card with 3 code lines + blue caret.
+       Right: white rendered page with folded corner + teal "t".
+       Canvas 1024. Tile inset 4% (40/944), radius 208 (22%).
+       ============================================================ -->
+
+  <defs>
+    <!-- family gradient: vertical, same stops as the .typ file icons -->
+    <linearGradient id="tileTeal" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="984">
+      <stop offset="0" stop-color="#3EC0D0"/>
+      <stop offset="1" stop-color="#1B8494"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tile: family silhouette -->
+  <rect x="40" y="40" width="944" height="944" rx="208" fill="url(#tileTeal)"/>
+
+  <!-- left card: code surface (2 thick lines + caret: survives 16px) -->
+  <g>
+    <rect x="168" y="268" width="324" height="488" rx="32" fill="#1B2228"/>
+    <rect x="210" y="385" width="236" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.85"/>
+    <rect x="210" y="475" width="176" height="34" rx="17" fill="#FFFFFF" fill-opacity="0.85"/>
+    <!-- caret: live-edit accent, blue -->
+    <rect x="210" y="554" width="30" height="84" rx="15" fill="#5AA9FF"/>
+  </g>
+
+  <!-- right card: rendered page -->
+  <g>
+    <path d="M564 268 L760 268 L856 364 L856 724 A32 32 0 0 1 824 756 L564 756 A32 32 0 0 1 532 724 L532 300 A32 32 0 0 1 564 268 Z"
+          fill="#FFFFFF" stroke="#E3E3E3" stroke-width="3.5"/>
+    <!-- folded top-right corner -->
+    <path d="M760 268 L856 268 L856 364 Z" fill="#E5ECF0" stroke="#E3E3E3" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- typeset "t" on the page -->
+    <text x="690" y="637" font-family="'Segoe UI Black','Arial Black','Segoe UI',sans-serif" font-size="352"
+          font-weight="900" fill="#239DAD" text-anchor="middle">t</text>
+  </g>
+</svg>

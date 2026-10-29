@@ -1,0 +1,11 @@
+[package]
+name = "typ-edit-preview"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+egui = { workspace = true }
+log = { workspace = true }
+typ-edit-model = { workspace = true }
+typ-edit-widgets = { workspace = true }
+typ-edit-i18n = { workspace = true }

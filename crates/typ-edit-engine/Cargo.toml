@@ -1,0 +1,24 @@
+[package]
+name = "typ-edit-engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+typ-edit-model = { workspace = true }
+typ-edit-analysis = { workspace = true }
+typ-edit-geom = { workspace = true }
+typst = { workspace = true }
+typst-layout = { workspace = true }
+typst-ide = { workspace = true }
+typst-render = { workspace = true }
+# `scan-fonts` is required: it gates `typst_kit::fonts::system()`, which
+# `FontCatalog::build_typst_font_store` uses to seed the typst font store.
+typst-kit = { workspace = true, default-features = false, features = ["embedded-fonts", "scan-fonts", "system-packages"] }
+fontdb = { workspace = true }
+crossbeam-channel = { workspace = true }
+harper-core = { workspace = true }
+regex = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+toml = { workspace = true }

@@ -1,0 +1,11 @@
+[package]
+name = "typ-edit-analysis"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+typ-edit-model = { workspace = true }
+strsim = { workspace = true }
+typst = { workspace = true }
+typst-ide = { workspace = true }
+typst-syntax = { workspace = true }
