@@ -1,0 +1,7 @@
+﻿HKCU\Software\Classes\.typ : EXISTED (before registration)
+HKCU\Software\Classes\Typst.Document : absent (before registration)
+HKCU\Software\Classes\Applications\typst-editor.exe : EXISTED (before registration)
+HKCU\Software\TypstEditor\Capabilities : absent (before registration)
+HKCU\Software\RegisteredApplications : EXISTED (before registration)
+HKLM\Software\Classes\.typ : absent (before registration)
+HKLM\Software\Classes\Typst.Document : absent (before registration)

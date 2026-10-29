@@ -1,0 +1,157 @@
+﻿[workspace]
+members = ["crates/*"]
+# No `resolver` key: edition 2024 => resolver 3.
+
+[workspace.dependencies]
+typ-edit-model = { path = "crates/typ-edit-model" }
+typ-edit-analysis = { path = "crates/typ-edit-analysis" }
+typ-edit-engine = { path = "crates/typ-edit-engine" }
+typ-edit-editor = { path = "crates/typ-edit-editor" }
+typ-edit-preview = { path = "crates/typ-edit-preview" }
+typ-edit-widgets = { path = "crates/typ-edit-widgets" }
+typ-edit-buffer = { path = "crates/typ-edit-buffer" }
+typ-edit-i18n = { path = "crates/typ-edit-i18n" }
+typ-edit-git = { path = "crates/typ-edit-git" }
+# Std-only geometry (Extents + BVH) shared by `typ-edit-engine` and
+# `typst-gpu-canvas`; neither of those may depend on the other.
+typ-edit-geom = { path = "crates/typ-edit-geom" }
+typ-edit-collab = { path = "crates/typ-edit-collab" }
+git2 = "0.21"
+typst = "0.15.1"
+typst-layout = "0.15.1"
+typst-ide = "0.15.1"
+typst-render = "0.15.1"
+typst-kit = { version = "0.15.1", default-features = false }
+typst-pdf = "0.15.1"
+typst-svg = "0.15.1"
+# Still used by `typst-gpu-canvas`.
+typst-syntax = "0.15.1"
+# Consumed only by `typst-gpu-canvas`, which the app pulls in through its
+# optional `gpu-canvas` feature; kept here so those versions resolve in lockstep.
+typst-library = "0.15.1"
+typst-assets = "0.15.1"
+egui-wgpu = { version = "0.36.2", default-features = false }
+lyon = "1.0.19"
+ttf-parser = "0.25"
+image = { version = "0.25.5", default-features = false }
+usvg = "0.47"
+resvg = "0.47"
+egui_kittest = "0.36.2"
+dify = { version = "0.8.0", default-features = false }
+typstyle-core = "0.15.1"
+egui = "0.36.2"
+eframe = { version = "0.36.2", default-features = false }
+serde = "1.0"
+serde_json = "1.0"
+toml = "0.9"
+crossbeam-channel = "0.5"
+# Recursive OS file watcher (ReadDirectoryChangesW on Windows, FSEvents on macOS).
+notify = "8.2"
+log = "0.4"
+# RustCrypto stack for LAN collaboration
+chacha20poly1305 = { version = "0.11.0", default-features = false, features = ["alloc"] }
+pbkdf2 = "0.13.0"
+sha2 = "0.11.0"
+hmac = "0.13.0"
+getrandom = "0.3"
+# mDNS discovery for LAN collaboration (Phase 2). Pure Rust; no async runtime is
+# used, so its `async` feature is left off to keep the dependency closure small.
+mdns-sd = { version = "0.21.5", default-features = false, features = ["logging"] }
+rfd = "0.17"
+directories = "6.0"
+fontdb = "0.24"
+ropey = "1"
+similar = "3"
+strsim = "0.11"
+regex = "1"
+# Spell checking.
+harper-core = { version = "2.11.0", default-features = false }
+
+[package]
+name = "typ-edit"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+default-run = "typst-editor"
+
+[features]
+default = ["gpu-canvas"]
+# The GPU canvas preview backend. Without it the app links no `typst-gpu-canvas`
+# and the preview always uses the raster path; the experimental setting is inert.
+gpu-canvas = ["dep:typst-gpu-canvas"]
+
+[lib]
+name = "typ_edit"
+path = "src/lib.rs"
+
+[[bin]]
+name = "typst-editor"
+path = "src/main.rs"
+
+[dependencies]
+eframe = { workspace = true, default-features = false, features = ["wgpu", "default_fonts"] }
+egui = { workspace = true }
+typ-edit-model = { workspace = true }
+typ-edit-analysis = { workspace = true }
+typ-edit-engine = { workspace = true }
+typ-edit-editor = { workspace = true }
+typ-edit-preview = { workspace = true }
+typ-edit-widgets = { workspace = true }
+typ-edit-i18n = { workspace = true }
+typ-edit-git = { workspace = true }
+typ-edit-collab = { workspace = true }
+notify = { workspace = true }
+sys-locale = "0.3"
+typst-gpu-canvas = { path = "crates/typst-gpu-canvas", optional = true }
+typst = { workspace = true }
+typst-layout = { workspace = true }
+typstyle-core = { workspace = true }
+typst-ide = { workspace = true }
+typst-svg = { workspace = true }
+typst-pdf = { workspace = true }
+typst-render = { workspace = true }
+rfd = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+sysinfo = "0.36"
+directories = { workspace = true }
+crossbeam-channel = { workspace = true }
+log = { workspace = true }
+fontdb = { workspace = true }
+env_logger = "0.11"
+png = "0.18"
+
+# The custom macOS window uses the AppKit layer for its 8 pt corner radius.
+# These crates are already in eframe/winit's macOS tree; this enables the
+# NSWindow/NSView/NSColor and CALayer APIs used by src/app/macos_window.rs.
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-app-kit = { version = "0.3.2", default-features = false, features = [
+    "std",
+    "NSWindow",
+    "NSView",
+    "NSColor",
+    "objc2-quartz-core",
+] }
+raw-window-handle = "0.6.2"
+
+# winit's Wayland/X11 backends are Linux-only; enabling them on Windows or
+# macOS pulls in platform features the app never uses.
+[target.'cfg(target_os = "linux")'.dependencies]
+eframe = { workspace = true, default-features = false, features = ["wayland", "x11"] }
+
+[build-dependencies]
+embed-resource = "3"
+
+[dev-dependencies]
+# Used only by the app-level git worker round-trip test to build a temp repo.
+git2 = { workspace = true }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2
+debug = "line-tables-only"
+
+[profile.release]
+strip = "symbols"

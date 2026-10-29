@@ -1,0 +1,16 @@
+[package]
+name = "typ-edit-editor"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+typ-edit-model = { workspace = true }
+typ-edit-widgets = { workspace = true }
+typ-edit-buffer = { workspace = true }
+typ-edit-i18n = { workspace = true }
+egui = { workspace = true }
+arboard = "3.6.1"
+regex = { workspace = true }
+
+[dev-dependencies]
+typ-edit-engine = { workspace = true }

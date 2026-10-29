@@ -1,0 +1,4 @@
+﻿HKCU\Software\Classes\.typ : absent (before registration)
+HKCU\Software\Classes\Typst.Document : absent (before registration)
+HKLM\Software\Classes\.typ : absent (before registration)
+HKLM\Software\Classes\Typst.Document : absent (before registration)

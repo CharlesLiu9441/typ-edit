@@ -1,0 +1,9 @@
+[package]
+name = "typ-edit-widgets"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+egui = { workspace = true }
+egui_taffy = "0.14"
+typ-edit-i18n = { workspace = true }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>typ-edit 应用图标提案</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #FFFFFF; }
+  body {
+    width: 1800px; min-height: 1000px;
+    padding: 40px 56px 26px;
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: #16181D;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header { display: flex; align-items: baseline; gap: 18px; margin-bottom: 8px; }
+  h1 { font-size: 34px; font-weight: 700; letter-spacing: 0.5px; }
+  .sub { font-size: 14px; color: #7A828C; }
+
+  .rule { height: 1px; background: #E8EAEE; margin: 14px 0 6px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 218px 288px 288px 1fr 206px;
+    gap: 26px;
+    align-items: center;
+    padding: 13px 0;
+  }
+  .row + .row { border-top: 1px solid #EEF0F3; }
+
+  .name .letter {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 9px;
+    background: #EAF7F8; color: #1B8494;
+    font-size: 16px; font-weight: 700; margin-bottom: 7px;
+  }
+  .name h2 { font-size: 17px; font-weight: 700; line-height: 1.35; }
+  .name p { font-size: 12.5px; color: #8A929C; margin-top: 3px; letter-spacing: 0.3px; }
+
+  .panel {
+    width: 288px; height: 240px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .panel.light { background: #F6F7F9; }
+  .panel.dark  { background: #1E2024; }
+  .panel img { width: 220px; height: 220px; display: block; }
+
+  .sizes { display: flex; align-items: center; gap: 20px; padding-left: 6px; }
+  .size { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .size img { display: block; }
+  .size span { font-size: 11px; color: #A2AAB4; font-variant-numeric: tabular-nums; }
+
+  .zoom {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    padding: 8px; border-radius: 14px; background: #F6F7F9;
+  }
+  .zoom img {
+    width: 160px; height: 160px; display: block;
+    image-rendering: pixelated;
+  }
+  .zoom span { font-size: 11.5px; color: #8A929C; }
+
+  footer {
+    display: flex; align-items: center; gap: 24px;
+    margin-top: 18px; padding-top: 16px;
+    border-top: 1px solid #E8EAEE;
+    font-size: 11.5px; color: #8A929C;
+  }
+  footer .ftitle { font-size: 12px; color: #5C636D; letter-spacing: 0.4px; }
+  footer .sw { display: inline-flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
+  footer .chip {
+    width: 24px; height: 24px; border-radius: 7px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>typ-edit 应用图标提案</h1>
+    <span class="sub">Typst Editor · 1024 母版 / 256 → 16 全尺寸 · 品牌色 #3EC0D0 → #1B8494</span>
+  </header>
+  <div class="rule"></div>
+
+  <section class="row">
+    <div class="name">
+      <div class="letter">A</div>
+      <h2>方案 A · 代码与页面</h2>
+      <p>code + page · 推荐</p>
+    </div>
+    <figure class="panel light"><img src="out-a-code-page-256.png" alt=""></figure>
+    <figure class="panel dark"><img src="out-a-code-page-256.png" alt=""></figure>
+    <div class="sizes">
+      <div class="size"><img src="out-a-code-page-128.png" width="128" height="128"><span>128</span></div>
+      <div class="size"><img src="out-a-code-page-64.png" width="64" height="64"><span>64</span></div>
+      <div class="size"><img src="out-a-code-page-48.png" width="48" height="48"><span>48</span></div>
+      <div class="size"><img src="out-a-code-page-32.png" width="32" height="32"><span>32</span></div>
+      <div class="size"><img src="out-a-code-page-16.png" width="16" height="16"><span>16</span></div>
+    </div>
+    <div class="zoom"><img src="out-a-code-page-16-zoom.png" alt=""><span>16px ×10 像素放大</span></div>
+  </section>
+
+  <section class="row">
+    <div class="name">
+      <div class="letter">B</div>
+      <h2>方案 B · 打字中的 t</h2>
+      <p>typing t · 光标蓝 #5AA9FF</p>
+    </div>
+    <figure class="panel light"><img src="out-b-typing-t-256.png" alt=""></figure>
+    <figure class="panel dark"><img src="out-b-typing-t-256.png" alt=""></figure>
+    <div class="sizes">
+      <div class="size"><img src="out-b-typing-t-128.png" width="128" height="128"><span>128</span></div>
+      <div class="size"><img src="out-b-typing-t-64.png" width="64" height="64"><span>64</span></div>
+      <div class="size"><img src="out-b-typing-t-48.png" width="48" height="48"><span>48</span></div>
+      <div class="size"><img src="out-b-typing-t-32.png" width="32" height="32"><span>32</span></div>
+      <div class="size"><img src="out-b-typing-t-16.png" width="16" height="16"><span>16</span></div>
+    </div>
+    <div class="zoom"><img src="out-b-typing-t-16-zoom.png" alt=""><span>16px ×10 像素放大</span></div>
+  </section>
+
+  <section class="row">
+    <div class="name">
+      <div class="letter">C</div>
+      <h2>方案 C · 括号 t</h2>
+      <p>&lt; t &gt; · 代码与排印</p>
+    </div>
+    <figure class="panel light"><img src="out-c-brackets-t-256.png" alt=""></figure>
+    <figure class="panel dark"><img src="out-c-brackets-t-256.png" alt=""></figure>
+    <div class="sizes">
+      <div class="size"><img src="out-c-brackets-t-128.png" width="128" height="128"><span>128</span></div>
+      <div class="size"><img src="out-c-brackets-t-64.png" width="64" height="64"><span>64</span></div>
+      <div class="size"><img src="out-c-brackets-t-48.png" width="48" height="48"><span>48</span></div>
+      <div class="size"><img src="out-c-brackets-t-32.png" width="32" height="32"><span>32</span></div>
+      <div class="size"><img src="out-c-brackets-t-16.png" width="16" height="16"><span>16</span></div>
+    </div>
+    <div class="zoom"><img src="out-c-brackets-t-16-zoom.png" alt=""><span>16px ×10 像素放大</span></div>
+  </section>
+
+  <footer>
+    <span class="ftitle">品牌色板</span>
+    <span class="sw"><span class="chip" style="background:#3EC0D0"></span>#3EC0D0</span>
+    <span class="sw"><span class="chip" style="background:#1B8494"></span>#1B8494</span>
+    <span class="sw"><span class="chip" style="background:#239DAD"></span>#239DAD</span>
+    <span class="sw"><span class="chip" style="background:#5AA9FF"></span>#5AA9FF</span>
+    <span class="sw"><span class="chip" style="background:#1B2228"></span>#1B2228</span>
+    <span class="sw"><span class="chip" style="background:#E5ECF0"></span>#E5ECF0</span>
+    <span class="sw"><span class="chip" style="background:#E3E3E3"></span>#E3E3E3</span>
+    <span class="sw" style="margin-left:auto">圆角 208 / 22% · 画布 1024 · SVG → Edge → ImageMagick</span>
+  </footer>
+</body>
+</html>

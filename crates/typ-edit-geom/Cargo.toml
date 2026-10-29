@@ -1,0 +1,7 @@
+[package]
+name = "typ-edit-geom"
+version = "0.1.0"
+edition = "2024"
+description = "Standard-library-only geometry shared by the engine's page index and the GPU canvas's frame index."
+
+[dependencies]

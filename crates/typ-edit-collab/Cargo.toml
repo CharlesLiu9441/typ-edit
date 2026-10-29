@@ -1,0 +1,23 @@
+[package]
+name = "typ-edit-collab"
+version = "0.1.0"
+edition = "2024"
+description = "UI-free LAN collaboration core: wire protocol, crypto session, generation state machine, history stacks and text ops."
+publish = false
+
+[[bin]]
+name = "typ-edit-collab-server"
+path = "src/bin/headless_server.rs"
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+typ-edit-model = { path = "../typ-edit-model" }
+serde_json = { workspace = true }
+crossbeam-channel = { workspace = true }
+log = { workspace = true }
+chacha20poly1305 = { workspace = true }
+pbkdf2 = { workspace = true }
+sha2 = { workspace = true }
+hmac = { workspace = true }
+getrandom = { workspace = true }
+mdns-sd = { workspace = true }
